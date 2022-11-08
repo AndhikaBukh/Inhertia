@@ -1,0 +1,40 @@
+.button {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px 0;
+	border-radius: 5px;
+	outline: 2px solid transparent;
+	transition: outline 300ms linear;
+
+	font-size: 1rem;
+	font-weight: 600;
+
+	&--primary {
+		background: var(--main-blue);
+		color: var(--main-white);
+
+		&:hover {
+			outline: 2px solid var(--main-black);
+		}
+	}
+
+	&--bold {
+		background: var(--main-black);
+		color: var(--main-white);
+
+		&:hover {
+			outline: 2px solid var(--main-black);
+		}
+	}
+
+	&--optional {
+		background: var(--neutral-20);
+		color: var(--main-black);
+
+		&:hover {
+			outline: 2px solid var(--main-black);
+		}
+	}
+}

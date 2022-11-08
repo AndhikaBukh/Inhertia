@@ -1,0 +1,70 @@
+@use '../../styles/include.scss' as *;
+
+.navbar {
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 90px;
+	position: relative;
+	z-index: -1;
+	top: 0;
+
+	padding: 20px 0 30px;
+	background: var(--main-blue);
+
+	@include Flex($direction: column, $gap: 14px);
+
+	&__container {
+		padding: 0 20px;
+
+		@include Flex($align: center, $gap: 14px);
+	}
+
+	&__search {
+		max-width: 88%;
+		flex: 1;
+		background: var(--main-white);
+		padding: 6px;
+		gap: 10px;
+		border-radius: 5px;
+
+		font-size: 0.938rem;
+
+		@include Flex($align: center);
+
+		&__field,
+		&__field::placeholder {
+			flex: 1;
+			font-size: inherit;
+			font-weight: 600;
+			color: var(--primary-white);
+			overflow: auto;
+		}
+
+		&__field::placeholder {
+			color: var(--neutral-80);
+		}
+
+		&__icon {
+			$size: 26px;
+
+			padding: 4px;
+
+			@include Flex($justify: stretch, $align: stretch);
+			@include SetSize($set: $size);
+		}
+	}
+
+	&__title {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--main-white);
+	}
+
+	&__button {
+		$size: 32px;
+		padding: 2.5px;
+
+		@include Flex($justify: stretch, $align: stretch);
+		@include SetSize($set: $size);
+	}
+}

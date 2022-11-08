@@ -1,0 +1,35 @@
+@use '../../styles/include.scss' as *;
+
+.search {
+	@include PagePreset;
+	@include RemoveScrollbar;
+
+	&__filter {
+		padding: 0 20px;
+		overflow: auto;
+
+		@include Flex($gap: 10px);
+		@include RemoveScrollbar;
+
+		&__item {
+			padding: 4px 14px;
+			border: 2px var(--white-border--60) solid;
+			border-radius: 6px;
+
+			@include Flex($gap: 8px);
+
+			&__icon {
+				@include SetSize($set: 16px);
+			}
+
+			&__title {
+				font-size: 1rem;
+				font-weight: 500;
+				color: var(--main-white);
+
+				@include Flex;
+				@include EllipsisOneLine;
+			}
+		}
+	}
+}

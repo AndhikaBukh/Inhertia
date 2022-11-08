@@ -1,0 +1,37 @@
+const handleIncorrect = (
+	_setter: React.Dispatch<React.SetStateAction<boolean>>,
+	_element: any = null
+) => {
+	_setter(true);
+	_element?.focus();
+};
+
+
+	// const navigate = useNavigate();
+	// const auth = useAuth();
+
+	// const [showAlert, setShowAlert] = useState(false);
+	// const [alertContent, setAlertContent] = useState('');
+
+
+
+	const handleLogin = () => {
+		// 	takePasswordInput.current?.value === ''
+		// 		? handleIncorrect(setHighlightPassword, takePasswordInput.current)
+		// 		: null;
+		// 	takeEmailInput.current?.value === ''
+		// 		? handleIncorrect(setHighlightEmail, takeEmailInput.current)
+		// 		: null;
+		// 	const handleEmail = takeEmailInput.current?.value.toLowerCase();
+		// 	const handlePassword = takePasswordInput.current?.value;
+		// 	auth?.tryLogin(handleEmail, handlePassword).catch(error => {
+		// 		setAlertContent(error.response?.data?.error);
+		// 		handleIncorrect(setHighlightPassword);
+		// 		handleIncorrect(setHighlightEmail);
+		// 		setShowAlert(true);
+		// 	});
+	};
+
+	// useEffect(() => {
+	// 	document.title = 'Project Sylly - Login Page';
+	// }, []);

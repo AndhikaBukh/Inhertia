@@ -1,0 +1,55 @@
+@use '../../styles/include.scss' as *;
+
+.login {
+	flex: 1;
+	align-self: stretch;
+
+	padding: 16px 20px;
+	background: var(--main-white);
+
+	@include Flex($direction: column, $justify: space-between, $gap: 12px);
+
+	&__header {
+		position: absolute;
+		top: 80px;
+		left: 20px;
+		right: 20px;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		&__header {
+			gap: 16px;
+
+			@include Flex($direction: column);
+		}
+		&__header_title {
+			font-size: 2rem;
+			font-weight: 700;
+			color: var(--main-black);
+		}
+
+		&__forget_password {
+			font-size: 0.75rem;
+
+			@include Flex($gap: 1ch);
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			&__link {
+				color: var(--main-blue);
+			}
+		}
+	}
+
+	&__button_container {
+		max-width: 100%;
+
+		@include Flex($direction: column, $gap: 20px);
+	}
+}

@@ -1,0 +1,33 @@
+@use '../../styles/include.scss' as *;
+
+.category {
+	min-width: 64px;
+	min-height: 64px;
+	position: relative;
+
+	&__background {
+		border-radius: 14px;
+		opacity: 75%;
+
+		@include SetSize($set: 54px);
+
+		&--others {
+			background: var(--neutral-40);
+		}
+	}
+
+	&__foreground {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+
+		@include Flex($justify: stretch, $align: stretch);
+		@include SetSize($set: 48px);
+
+		&--others {
+			padding: 11px;
+			border-radius: 14px;
+			background: var(--neutral-100);
+		}
+	}
+}

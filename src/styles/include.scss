@@ -1,0 +1,64 @@
+@mixin PagePreset($rounded: round) {
+	flex: 1;
+	align-self: stretch;
+	max-height: calc(100vh - 80px);
+	min-width: 100%;
+	overflow: auto;
+	z-index: 1;
+
+	margin: -10px 0 0;
+	padding: 20px 0;
+	background: white;
+	@if $rounded == round {
+		border-radius: 12px 12px 0 0;
+	}
+}
+
+@mixin RemoveScrollbar {
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@mixin Flex($direction: row, $justify: default, $align: default, $gap: 0) {
+	display: flex;
+
+	@if $direction == column {
+		flex-direction: column;
+	}
+
+	@if $justify != default {
+		justify-content: $justify;
+	}
+
+	@if $align != default {
+		align-items: $align;
+	}
+
+	@if $gap != 0 {
+		gap: $gap;
+	}
+}
+
+@mixin MinMaxWidth($min: auto, $max: auto) {
+	min-width: $min;
+	max-width: $max;
+}
+
+@mixin MinMaxHeight($min: auto, $max: auto) {
+	min-height: $min;
+	max-height: $max;
+}
+
+@mixin SetSize($set: auto) {
+	width: clamp($set, $set, $set);
+	height: clamp($set, $set, $set);
+}
+
+@mixin EllipsisOneLine {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

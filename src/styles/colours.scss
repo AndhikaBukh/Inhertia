@@ -1,0 +1,33 @@
+:root {
+	/* Main Colour Styles */
+	--main-white: #ffffff;
+	--main-black: #1a1a1a;
+	--main-orange: #ff5722;
+	--main-tangerine: #ed8b00;
+	--main-yellow: #ffe577;
+	--main-blue: #0e67ed;
+	--main-purple: #7928ca;
+
+	--neutral-100: #383838;
+	--neutral-90: #383838e6;
+	--neutral-80: #383838cc;
+	--neutral-70: #383838b3;
+	--neutral-60: #38383899;
+	--neutral-50: #38383880;
+	--neutral-40: #38383866;
+	--neutral-30: #3838384d;
+	--neutral-20: #38383833;
+	--neutral-10: #3838381a;
+
+	--success-50: #16c79a;
+	--error--50: #f05454;
+	--warning--50: #ffc145;
+
+	--white-border--60: #ffffff99;
+
+	/* Effect styles */
+	--shadow-card--horizontal: 2px 2px 12px rgba(0, 0, 0, 0.4);
+	--shadow-card--vertical: 2px 2px 12px rgba(0, 0, 0, 0.4);
+
+	--cubic-beziah: cubic-bezier(0.68, 0.38, 0, 1);
+}

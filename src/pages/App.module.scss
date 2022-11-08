@@ -1,0 +1,26 @@
+@use '../styles/include.scss' as *;
+
+.app {
+	min-width: 100%;
+	min-height: 100vh;
+
+	@include Flex($justify: center, $align: center);
+
+	&__container {
+		min-height: 720px;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+
+		@include MinMaxWidth($min: 550px, $max: 550px);
+		@include Flex($direction: column, $justify: center, $align: center);
+
+		@media (max-width: 560px) {
+			min-height: 100vh;
+
+			margin: 0;
+
+			@include MinMaxWidth($min: 100%, $max: 100%);
+		}
+	}
+}

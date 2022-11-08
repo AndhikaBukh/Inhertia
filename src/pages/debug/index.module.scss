@@ -1,0 +1,12 @@
+@use '../../styles/include.scss' as *;
+
+.debug {
+	@include PagePreset($rounded: none);
+	@include RemoveScrollbar;
+
+	padding: 24px;
+
+	&__container {
+		@include Flex($direction: column, $gap: 12px);
+	}
+}

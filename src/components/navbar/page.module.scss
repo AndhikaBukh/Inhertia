@@ -1,0 +1,25 @@
+@use '../../styles/include.scss' as *;
+
+.navbar_page {
+	min-width: 100%;
+	display: flex;
+
+	&__icon_wrapper {
+		$size: 40px;
+
+		padding: 8px;
+
+		@include SetSize($set: $size);
+	}
+
+	&__container {
+		min-width: 100%;
+
+		@include Flex($justify: space-between, $align: center);
+	}
+	&__header {
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: var(--primary-white);
+	}
+}
