@@ -1,3 +1,5 @@
+import { DefaultDeserializer } from 'v8';
+
 /**
  * This is a custom hook that allows you to drag certain elements on the screen.
  *
@@ -22,22 +24,17 @@ const useDrag = () => {
 			events.preventDefault();
 
 			position = e.clientY;
-			console.log(position, 'Client Position');
 
 			if (position > 14) {
 				if (_elementWrap.current) {
 					_elementWrap.current.style.top = `${position}px`;
 				}
-
-				console.log(_elementWrap?.current?.style.top);
 			}
 		};
 
 		document.onmouseup = () => {
 			document.onmouseup = null;
 			document.onmousemove = null;
-
-			console.log(window.innerHeight / 12, 'Hide Position');
 
 			if (position >= window.innerHeight / 12) {
 				_elementSetState(false);
@@ -67,14 +64,11 @@ const useDrag = () => {
 			document.body.style.overscrollBehavior = 'contain';
 
 			position = e.touches[0].clientY;
-			console.log(position, 'Client Position');
 
 			if (position > 14) {
 				if (_elementWrap.current) {
 					_elementWrap.current.style.top = `${position}px`;
 				}
-
-				console.log(_elementWrap?.current?.style.top);
 			}
 		};
 
@@ -82,8 +76,6 @@ const useDrag = () => {
 			document.ontouchend = null;
 			document.ontouchmove = null;
 			document.body.style.overscrollBehavior = 'auto';
-
-			console.log(window.innerHeight / 12, 'Hide Position');
 
 			if (position >= window.innerHeight / 12) {
 				_elementSetState(false);
