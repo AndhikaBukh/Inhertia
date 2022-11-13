@@ -59,30 +59,13 @@ const HomePage = () => {
 				</button>
 
 				<div className={styles.home__other__wrapper}>
-					<div className={styles.home__other__title}>Menu Lainnya</div>
-
-					<div className={styles.home__other__categories}>
-						<Categories title="Part-Time" />
-
-						<div className={styles.home__other__categories__content}>
-							<h2 className={styles.home__other__categories__content__title}>
-								Part-Time
-							</h2>
-
-							<p className={styles.home__other__categories__content__description}>
-								Cari pekerjaan sampingan buat ngisi dompet
-							</p>
-						</div>
-					</div>
-
-					<div className={styles.home__other__border}></div>
-
 					<div className={styles.home__other__title}>Kategori Franchise</div>
-					{categoryData.map(({ id, icon, title, description }) => {
+					{categoryData.map(({ title, description }, index) => {
 						return (
 							<>
-								<div className={styles.home__other__categories} key={id}>
-									{icon}
+								<div className={styles.home__other__categories} key={index}>
+									<Categories title={title} />
+
 									<div className={styles.home__other__categories__content}>
 										<h2
 											className={
@@ -101,9 +84,9 @@ const HomePage = () => {
 									</div>
 								</div>
 
-								{id !== 8 ? (
+								{index !== categoryData.length - 1 && (
 									<div className={styles.home__other__border}></div>
-								) : null}
+								)}
 							</>
 						);
 					})}
@@ -144,16 +127,16 @@ const HomePage = () => {
 			<section className={styles.home__section}>
 				<div className={styles.home__section__action}>
 					<div className={styles.home__section__action__row}>
-						{categoryData.slice(0, 4).map(({ id, icon, title }) => {
+						{categoryData.slice(0, 4).map(({ title }, index) => {
 							return (
 								<button
 									className={styles.home__section__action__item}
-									key={id}
+									key={index}
 									onClick={() =>
 										navigate('/search', { state: { activeFilter: title } })
 									}
 								>
-									{icon}
+									<Categories title={title} />
 									<div className={styles.home__section__action__item__title}>
 										{title}
 									</div>
@@ -163,10 +146,16 @@ const HomePage = () => {
 					</div>
 
 					<div className={styles.home__section__action__row}>
-						{categoryData.slice(4, 7).map(({ id, icon, title }) => {
+						{categoryData.slice(4, 7).map(({ title }, index) => {
 							return (
-								<button className={styles.home__section__action__item} key={id}>
-									{icon}
+								<button
+									className={styles.home__section__action__item}
+									key={index}
+									onClick={() =>
+										navigate('/search', { state: { activeFilter: title } })
+									}
+								>
+									<Categories title={title} />
 									<div className={styles.home__section__action__item__title}>
 										{title}
 									</div>
