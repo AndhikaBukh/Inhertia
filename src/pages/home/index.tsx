@@ -62,7 +62,7 @@ const HomePage = () => {
 					<div className={styles.home__other__title}>Menu Lainnya</div>
 
 					<div className={styles.home__other__categories}>
-						<Categories name="part-time" />
+						<Categories title="Part-Time" />
 
 						<div className={styles.home__other__categories__content}>
 							<h2 className={styles.home__other__categories__content__title}>
@@ -178,7 +178,7 @@ const HomePage = () => {
 							className={styles.home__section__action__item}
 							onClick={() => setShowOther(true)}
 						>
-							<Categories name="others" />
+							<Categories title="others" />
 							<div className={styles.home__section__action__item__title}>Lainnya</div>
 						</button>
 					</div>

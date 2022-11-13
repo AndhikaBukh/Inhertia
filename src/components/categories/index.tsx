@@ -1,23 +1,23 @@
 import { FC } from 'react';
 import styles from './index.module.scss';
 import { GridIcon } from '../emojiMicrosoft';
-import categoriesData from '../../data/listofCategory';
+import categoryData from '../../data/fullCategory';
 
 interface CategoriesProps {
-	name: string;
+	title: string;
 }
 
-const Categories: FC<CategoriesProps> = ({ name }) => {
+const Categories: FC<CategoriesProps> = ({ title }) => {
 	let color, icon;
 
-	categoriesData.map(category => {
-		if (name.includes(category.name)) {
+	categoryData.map(category => {
+		if (title.includes(category.title)) {
 			color = category.color;
 			icon = category.icon;
 		}
 	});
 
-	return name !== 'others' ? (
+	return title !== 'others' ? (
 		<div className={styles.category}>
 			<div
 				className={styles.category__background}
