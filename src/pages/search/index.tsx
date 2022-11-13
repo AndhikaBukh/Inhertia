@@ -4,11 +4,12 @@ import { useLocation } from 'react-router-dom';
 
 import styles from './index.module.scss';
 import categoryData from '../../data/fullCategory';
-import { FilterIcon } from '../../components/emojiMicrosoft';
+import FranchiseData from '../../data/fullFranchise';
+import { BookmarkIcon, FilterIcon } from '../../components/emojiMicrosoft';
+import { ChevronCircleRightFilledIcon } from '../../components/icons';
 
 // Import Image Assets
 import img from '../../assets/Card1.png';
-import { BookmarkIcon, ChevronCircleRightFilledIcon } from '../../components/icons';
 
 interface SearchPageProps {
 	activeFilter?: string;
@@ -49,7 +50,6 @@ const SearchPage: FC<SearchPageProps> = () => {
 		app?.setPageTitle('Search');
 		app?.navbarConfig({
 			_title: undefined,
-			_placeholder: `Lagi cari franchise ${location.state.activeFilter} apa nih?`,
 			_back: true,
 			_menu: true,
 			_show: true,
@@ -59,7 +59,7 @@ const SearchPage: FC<SearchPageProps> = () => {
 
 	return (
 		<main className={styles.search}>
-			{[1, 2, 3, 4, 5, 6].map(index => (
+			{FranchiseData.map(({ image, title, description, rating }, index) => (
 				<div
 					className={styles.search__item}
 					onClick={() => console.log('Direct to franchise page')}
@@ -68,19 +68,17 @@ const SearchPage: FC<SearchPageProps> = () => {
 					<div
 						className={styles.search__item__image}
 						style={{
-							backgroundImage: `url(${img})`,
+							backgroundImage: `url(${image})`,
 						}}
 					></div>
 					<div className={styles.search__item__content}>
 						<div className={styles.search__item__content__description}>
 							<h1 className={styles.search__item__content__description__title}>
-								Posarang, Korean BBQ
+								{title}
 							</h1>
 
 							<p className={styles.search__item__content__description__about}>
-								Posarang adalah sebuah konsep bisnis terbaru dari BATI Group yang
-								menyajikan makanan dari resep authentic Korea yang telah disesuaikan
-								dengan cinta rasa Indonesia.
+								{description}
 							</p>
 						</div>
 
@@ -100,13 +98,14 @@ const SearchPage: FC<SearchPageProps> = () => {
 										</g>
 									</svg>
 								</div>
-								<p className={styles.search__item__content__rating__text}>4.6</p>
+								<p className={styles.search__item__content__rating__text}>
+									{rating}
+								</p>
 								<p className={styles.search__item__content__rating__refer}>
-									{' '}
-									- Sangat Baik
+									- {rating > 4.5 || rating < 3.5 ? 'Sangat ' : null}
+									{rating >= 4 ? 'Baik' : rating <= 3.5 ? 'Buruk' : 'Baik'}
 								</p>
 							</div>
-
 							<div className={styles.search__item__content__action}>
 								<button className={styles.search__item__content__action__button}>
 									<BookmarkIcon />

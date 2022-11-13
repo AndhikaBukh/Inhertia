@@ -35,7 +35,8 @@
 	}
 
 	&__item {
-		min-height: 140px;
+		min-height: 150px;
+		overflow: hidden;
 
 		border-radius: 6px;
 		background: var(--main-white);
@@ -44,13 +45,12 @@
 		@include Flex;
 
 		&__image {
-			min-width: 140px;
-			max-width: 140px;
-
 			aspect-ratio: 1 / 1;
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
+
+			@include MinMaxWidth($min: 150px, $max: 150px);
 		}
 
 		&__content {
@@ -62,7 +62,7 @@
 				@include Flex($direction: column, $gap: 4px);
 
 				&__title {
-					font-size: 1rem;
+					font-size: 1.125rem;
 					font-weight: 700;
 					color: var(--main-black);
 
@@ -70,9 +70,12 @@
 				}
 
 				&__about {
-					font-size: 0.75rem;
+					// Special case
+					font-size: 13px;
 					font-weight: 600;
 					color: var(--neutral-80);
+
+					@include EllipsisMultiLine($line: 3);
 				}
 			}
 
@@ -81,24 +84,23 @@
 			}
 
 			&__rating {
+				// Special case
 				min-height: 16px;
+				font-size: 0.875rem;
+				font-weight: 600;
 
 				@include Flex($gap: 4px, $align: center);
 
 				&__star {
 					@include Flex;
-					@include SetSize($set: 14px);
+					@include SetSize($set: 18px);
 				}
 
 				&__text {
-					font-size: 0.75rem;
-					font-weight: 600;
 					color: var(--main-black);
 				}
 
 				&__refer {
-					font-size: 0.75rem;
-					font-weight: 600;
 					color: var(--neutral-80);
 				}
 			}
@@ -107,7 +109,7 @@
 				@include Flex($gap: 12px);
 
 				&__button {
-					@include SetSize($set: 22px);
+					@include SetSize($set: 24px);
 				}
 			}
 		}
