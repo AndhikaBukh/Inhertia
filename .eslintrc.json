@@ -23,6 +23,7 @@
 		"react/prop-types": "off",
 		"no-console": "warn",
 		"no-mixed-spaces-and-tabs": ["warn", "smart-tabs"],
-		"prefer-const": "warn"
+		"prefer-const": "warn",
+		"@typescript-eslint/no-explicit-any": "off"
 	}
 }
