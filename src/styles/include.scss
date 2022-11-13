@@ -1,4 +1,4 @@
-@mixin PagePreset($rounded: round) {
+@mixin PagePreset($rounded: round, $padding: 0) {
 	flex: 1;
 	align-self: stretch;
 	max-height: calc(100vh - 80px);
@@ -7,8 +7,14 @@
 	z-index: 1;
 
 	margin: -10px 0 0;
-	padding: 20px 0;
 	background: white;
+
+	@if $padding != 0 {
+		padding: $padding;
+	} @else {
+		padding: 20px 0;
+	}
+
 	@if $rounded == round {
 		border-radius: 12px 12px 0 0;
 	}
