@@ -7,6 +7,7 @@ import styles from './main.module.scss';
 
 interface NavbarProps {
 	title?: string;
+	placeholder?: string;
 	showNavbar?: boolean;
 	showBackButton?: boolean;
 	showMenuButton?: boolean;
@@ -16,6 +17,7 @@ interface NavbarProps {
 
 const NavbarMain: FC<NavbarProps> = ({
 	title = undefined,
+	placeholder = 'Selamat Pagi, Andhika!',
 	showNavbar = true,
 	showBackButton = false,
 	showMenuButton = true,
@@ -47,10 +49,7 @@ const NavbarMain: FC<NavbarProps> = ({
 							<SearchIcon color="#000" />
 						</button>
 
-						<input
-							className={styles.navbar__search__field}
-							placeholder="Selamat Pagi Andhika!"
-						/>
+						<input className={styles.navbar__search__field} placeholder={placeholder} />
 					</div>
 				)}
 

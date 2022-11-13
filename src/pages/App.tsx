@@ -17,6 +17,7 @@ import useHistory from '../hooks/useHistory';
 
 interface NavbarConfig {
 	_title?: string | undefined;
+	_placeholder?: string | undefined;
 	_show?: boolean | undefined;
 	_back?: boolean | undefined;
 	_backAction?: (() => void) | undefined;
@@ -42,6 +43,7 @@ const AppProvider = () => {
 
 	// Navbar Config
 	const [navbarTitle, setNavbarTitle] = useState<string | undefined>();
+	const [navbarPlaceholder, setNavbarPlaceholder] = useState<string | undefined>();
 	const [navbarShow, setNavbarShow] = useState<boolean>();
 	const [navbarBack, setNavbarBack] = useState<boolean>();
 	const setNavbarBackAction = (action: () => void) => {
@@ -52,6 +54,7 @@ const AppProvider = () => {
 
 	const navbarConfig = ({
 		_title = undefined,
+		_placeholder = undefined,
 		_show = true,
 		_back = false,
 		_backAction = () => history.goBack(),
@@ -59,6 +62,7 @@ const AppProvider = () => {
 		_children = undefined,
 	}: NavbarConfig) => {
 		setNavbarTitle(_title);
+		setNavbarPlaceholder(_placeholder);
 		setNavbarShow(_show);
 		setNavbarBack(_back);
 		setNavbarBackAction(_backAction);
@@ -89,6 +93,7 @@ const AppProvider = () => {
 				<div className={styles.app__container}>
 					<NavbarApp
 						title={navbarTitle}
+						placeholder={navbarPlaceholder}
 						showNavbar={navbarShow}
 						showBackButton={navbarBack}
 						showMenuButton={navbarMenu}
