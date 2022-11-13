@@ -1,8 +1,9 @@
 @use '../../styles/include.scss' as *;
 
 .search {
-	@include PagePreset;
+	@include PagePreset($padding: 20px);
 	@include RemoveScrollbar;
+	@include Flex($direction: column, $gap: 20px);
 
 	&__filter {
 		padding: 0 20px;
@@ -12,23 +13,102 @@
 		@include RemoveScrollbar;
 
 		&__item {
-			padding: 4px 14px;
+			padding: 5px 17px;
 			border: 2px var(--white-border--60) solid;
-			border-radius: 6px;
+			border-radius: 8px;
 
-			@include Flex($gap: 8px);
+			@include Flex($align: center, $gap: 8px);
 
 			&__icon {
-				@include SetSize($set: 16px);
+				@include SetSize($set: 18px);
 			}
 
 			&__title {
-				font-size: 1rem;
+				font-size: 0.875rem;
 				font-weight: 500;
 				color: var(--main-white);
 
 				@include Flex;
 				@include EllipsisOneLine;
+			}
+		}
+	}
+
+	&__item {
+		min-height: 140px;
+
+		border-radius: 6px;
+		background: var(--main-white);
+		box-shadow: var(--shadow-card--horizontal);
+
+		@include Flex;
+
+		&__image {
+			min-width: 140px;
+			max-width: 140px;
+
+			aspect-ratio: 1 / 1;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		&__content {
+			padding: 10px;
+
+			@include Flex($direction: column, $justify: space-between);
+
+			&__description {
+				@include Flex($direction: column, $gap: 4px);
+
+				&__title {
+					font-size: 1rem;
+					font-weight: 700;
+					color: var(--main-black);
+
+					@include EllipsisOneLine;
+				}
+
+				&__about {
+					font-size: 0.75rem;
+					font-weight: 600;
+					color: var(--neutral-80);
+				}
+			}
+
+			&__container {
+				@include Flex($justify: space-between, $align: flex-end);
+			}
+
+			&__rating {
+				min-height: 16px;
+
+				@include Flex($gap: 4px, $align: center);
+
+				&__star {
+					@include Flex;
+					@include SetSize($set: 14px);
+				}
+
+				&__text {
+					font-size: 0.75rem;
+					font-weight: 600;
+					color: var(--main-black);
+				}
+
+				&__refer {
+					font-size: 0.75rem;
+					font-weight: 600;
+					color: var(--neutral-80);
+				}
+			}
+
+			&__action {
+				@include Flex($gap: 12px);
+
+				&__button {
+					@include SetSize($set: 22px);
+				}
 			}
 		}
 	}
