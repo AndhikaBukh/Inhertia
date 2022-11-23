@@ -6,13 +6,12 @@
 	@include Flex($direction: column, $gap: 20px);
 
 	&__filter {
-		padding: 0 20px;
-		overflow: auto;
-
+		@include PageAddition;
 		@include Flex($gap: 10px);
 		@include RemoveScrollbar;
 
 		&__item {
+			order: 3;
 			padding: 5px 17px;
 			border: 2px var(--white-border--60) solid;
 			border-radius: 8px;
@@ -30,6 +29,23 @@
 
 				@include Flex;
 				@include EllipsisOneLine;
+			}
+
+			// Disable child element event propagation
+			& > * {
+				pointer-events: none;
+			}
+
+			// Override element state
+			&--main {
+				order: 1;
+			}
+
+			&--active {
+				order: 2;
+
+				border-color: var(--success-100);
+				background: var(--success-50);
 			}
 		}
 	}
@@ -86,21 +102,25 @@
 			&__rating {
 				// Special case
 				min-height: 16px;
-				font-size: 0.875rem;
+				font-size: 13px;
 				font-weight: 600;
 
 				@include Flex($gap: 4px, $align: center);
 
 				&__star {
 					@include Flex;
-					@include SetSize($set: 18px);
+					@include SetSize($set: 17px);
 				}
 
 				&__text {
+					font-size: inherit;
+					font-weight: inherit;
 					color: var(--main-black);
 				}
 
 				&__refer {
+					font-size: inherit;
+					font-weight: inherit;
 					color: var(--neutral-80);
 				}
 			}
@@ -112,6 +132,11 @@
 					@include SetSize($set: 24px);
 				}
 			}
+		}
+
+		// Override element state
+		&--hidden {
+			display: none;
 		}
 	}
 }
