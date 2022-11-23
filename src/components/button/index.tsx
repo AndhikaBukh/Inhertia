@@ -3,7 +3,7 @@ import styles from './index.module.scss';
 
 interface ButtonProps {
 	show?: boolean;
-	children: string | JSX.Element | JSX.Element[];
+	children?: any;
 	variant?: 'primary' | 'bold' | 'optional';
 	type?: 'button' | 'submit' | 'reset';
 	onClick?: () => void;

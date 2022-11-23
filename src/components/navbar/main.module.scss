@@ -3,12 +3,10 @@
 .navbar {
 	min-width: 100%;
 	max-width: 100%;
-	min-height: 90px;
 	position: relative;
 	z-index: -1;
-	top: 0;
 
-	padding: 20px 0 30px;
+	padding: 20px 0 14px;
 	background: var(--main-blue);
 
 	@include Flex($direction: column, $gap: 14px);
@@ -54,9 +52,12 @@
 	}
 
 	&__title {
-		font-size: 1.125rem;
+		flex: 1;
+		font-size: 1.25rem;
 		font-weight: 600;
 		color: var(--main-white);
+
+		margin: 0 0 3px;
 	}
 
 	&__button {
