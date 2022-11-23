@@ -17,7 +17,6 @@ const DebugPage = () => {
 			_title: 'Developer Tools',
 			_back: true,
 			_menu: false,
-			_children: undefined,
 		});
 	}, []);
 

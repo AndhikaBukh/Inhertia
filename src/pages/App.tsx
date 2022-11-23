@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import styles from './App.module.scss';
 import { Route, Routes } from 'react-router-dom';
 
@@ -14,6 +14,7 @@ import SearchPage from './search';
 
 // Hooks
 import useHistory from '../hooks/useHistory';
+import FranchisePage from './franchise';
 
 interface NavbarConfig {
 	_title?: string | undefined;
@@ -22,7 +23,6 @@ interface NavbarConfig {
 	_back?: boolean | undefined;
 	_backAction?: (() => void) | undefined;
 	_menu?: boolean | undefined;
-	_children?: React.ReactNode | undefined;
 }
 
 interface AppContext {
@@ -50,7 +50,6 @@ const AppProvider = () => {
 		action;
 	};
 	const [navbarMenu, setNavbarMenu] = useState<boolean>();
-	const [navbarChildren, setNavbarChildren] = useState<React.ReactNode | undefined>();
 
 	const navbarConfig = ({
 		_title = undefined,
@@ -59,7 +58,6 @@ const AppProvider = () => {
 		_back = false,
 		_backAction = () => history.goBack(),
 		_menu = true,
-		_children = undefined,
 	}: NavbarConfig) => {
 		setNavbarTitle(_title);
 		setNavbarPlaceholder(_placeholder);
@@ -67,12 +65,14 @@ const AppProvider = () => {
 		setNavbarBack(_back);
 		setNavbarBackAction(_backAction);
 		setNavbarMenu(_menu);
-		setNavbarChildren(_children);
 	};
 
 	const showNavbar = (_set: boolean) => {
 		setNavbarShow(_set);
 	};
+
+	// Fluid App Container Height
+	const refAppContainer = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		return () => {
@@ -90,16 +90,14 @@ const AppProvider = () => {
 			}}
 		>
 			<div className={styles.app}>
-				<div className={styles.app__container}>
+				<div className={styles.app__container} ref={refAppContainer}>
 					<NavbarApp
 						title={navbarTitle}
 						placeholder={navbarPlaceholder}
 						showNavbar={navbarShow}
 						showBackButton={navbarBack}
 						showMenuButton={navbarMenu}
-					>
-						{navbarChildren ? navbarChildren : null}
-					</NavbarApp>
+					/>
 
 					<Routes>
 						{/* Public Routes */}
@@ -113,6 +111,8 @@ const AppProvider = () => {
 						<Route path="/" element={<HomePage />} />
 
 						<Route path="/search" element={<SearchPage />} />
+
+						<Route path="/:franchiseName" element={<FranchisePage />} />
 
 						<Route path="/debug" element={<DebugPage />} />
 					</Routes>

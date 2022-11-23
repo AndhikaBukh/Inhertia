@@ -8,9 +8,11 @@
 
 	&__container {
 		min-height: 720px;
+		height: 100vh;
 		position: relative;
 		z-index: 1;
 		overflow: hidden;
+		background: var(--main-blue);
 
 		@include MinMaxWidth($min: 550px, $max: 550px);
 		@include Flex($direction: column, $justify: center, $align: center);
