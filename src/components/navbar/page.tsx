@@ -16,7 +16,7 @@ interface PageNavbarProps {
 const NavbarPage: FC<PageNavbarProps> = ({
 	pageTitle,
 	pageIconLeft = undefined,
-	handlePageIconLeft = () => history.goBack(true, '/login'),
+	handlePageIconLeft = () => history.goBack('/login'),
 	pageIconRight = undefined,
 	handlePageIconRight,
 }) => {

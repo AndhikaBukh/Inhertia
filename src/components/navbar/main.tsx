@@ -29,10 +29,7 @@ const NavbarMain: FC<NavbarProps> = ({
 		<div className={styles.navbar}>
 			<div className={styles.navbar__container}>
 				{showBackButton && (
-					<button
-						className={styles.navbar__button}
-						onClick={() => history.goBack(true, '/')}
-					>
+					<button className={styles.navbar__button} onClick={() => history.goBack('/')}>
 						<ArrowLeftFilledIcon />
 					</button>
 				)}
