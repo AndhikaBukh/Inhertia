@@ -1,0 +1,84 @@
+@use '../../styles/include.scss' as *;
+
+.franchise {
+	@include PagePreset($padding: 20px);
+	@include RemoveScrollbar;
+	@include Flex($direction: column, $gap: 20px);
+
+	&__image {
+		min-height: 240px;
+		align-self: stretch;
+		box-shadow: var(--shadow-card--horizontal);
+
+		@include Flex($justify: center, $align: center);
+
+		&__content {
+			@include SetSize($set: 200px);
+			object-fit: cover;
+		}
+	}
+
+	&__details {
+		color: var(--main-black);
+
+		@include Flex($direction: column, $gap: 12px);
+
+		&__title {
+			font-size: 2rem;
+			font-weight: 700;
+		}
+
+		&__about {
+			font-size: 1.125rem;
+			font-weight: 600;
+		}
+	}
+
+	&__overview {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--main-black);
+
+		padding: 14px 20px;
+		border: 2px solid var(--neutral-40);
+		border-radius: 8px;
+
+		@include Flex($justify: space-between, $align: center);
+
+		&__container {
+			@include Flex($direction: column, $gap: 8px);
+		}
+
+		&__action {
+			@include SetSize($set: 32px);
+		}
+
+		&__title {
+			font-size: inherit;
+			font-weight: inherit;
+		}
+
+		&__content {
+			font-size: inherit;
+			font-weight: inherit;
+			@include Flex($align: center, $gap: 8px);
+
+			&__icon {
+				@include SetSize($set: 18px);
+			}
+		}
+
+		&__refer {
+			color: var(--neutral-80);
+		}
+	}
+
+	&__action {
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+		right: 20px;
+
+		@include Flex($direction: column);
+	}
+}
