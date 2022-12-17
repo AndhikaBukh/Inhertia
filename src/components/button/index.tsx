@@ -6,7 +6,7 @@ interface ButtonProps {
 	children?: any;
 	variant?: 'primary' | 'bold' | 'optional';
 	type?: 'button' | 'submit' | 'reset';
-	onClick?: () => void;
+	onClick?: (e?: any) => void;
 	className?: string;
 }
 
@@ -30,7 +30,7 @@ const ButtonComponent: FC<ButtonProps> = props => {
 				e.stopPropagation();
 
 				if (e.key === 'Enter') {
-					onClick?.();
+					onClick?.(e);
 				}
 			});
 		}
@@ -40,7 +40,7 @@ const ButtonComponent: FC<ButtonProps> = props => {
 		<button
 			// prettier-ignore
 			className={`${styles.button} ${styles[`button--${variant}`]} ${className ? styles[`${className}`] : '' }`}
-			onClick={onClick}
+			onClick={(e: any) => (onClick !== undefined ? onClick(e) : null)}
 			type={type}
 			ref={refElement}
 		>
