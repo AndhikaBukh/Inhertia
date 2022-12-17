@@ -22,6 +22,7 @@ const useDrag = () => {
 
 		document.onmousemove = e => {
 			e = e || window.event;
+			e.preventDefault();
 
 			position = e.clientY;
 
@@ -62,6 +63,7 @@ const useDrag = () => {
 
 		document.ontouchmove = e => {
 			e = e || window.event;
+			e.preventDefault();
 
 			position = e.touches[0].clientY;
 
