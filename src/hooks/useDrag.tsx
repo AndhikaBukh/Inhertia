@@ -18,10 +18,10 @@ const useDrag = () => {
 		events: React.MouseEvent<any, any>
 	) => {
 		let position = 0;
+		events.preventDefault();
 
 		document.onmousemove = e => {
 			e = e || window.event;
-			events.preventDefault();
 
 			position = e.clientY;
 
@@ -57,11 +57,11 @@ const useDrag = () => {
 		events: React.TouchEvent<any>
 	) => {
 		let position = 0;
+		events.preventDefault();
+		document.body.style.overscrollBehavior = 'contain';
 
 		document.ontouchmove = e => {
 			e = e || window.event;
-			events.preventDefault();
-			document.body.style.overflow = 'hidden';
 
 			position = e.touches[0].clientY;
 
@@ -75,7 +75,7 @@ const useDrag = () => {
 		document.ontouchend = () => {
 			document.ontouchend = null;
 			document.ontouchmove = null;
-			document.body.style.overflow = 'auto';
+			document.body.style.overscrollBehavior = 'auto';
 
 			if (position >= window.innerHeight / 12) {
 				_elementSetState(false);
