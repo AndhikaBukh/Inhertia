@@ -61,7 +61,7 @@ const useDrag = () => {
 		document.ontouchmove = e => {
 			e = e || window.event;
 			events.preventDefault();
-			document.body.style.overscrollBehavior = 'contain';
+			document.body.style.overflow = 'hidden';
 
 			position = e.touches[0].clientY;
 
@@ -75,7 +75,7 @@ const useDrag = () => {
 		document.ontouchend = () => {
 			document.ontouchend = null;
 			document.ontouchmove = null;
-			document.body.style.overscrollBehavior = 'auto';
+			document.body.style.overflow = 'auto';
 
 			if (position >= window.innerHeight / 12) {
 				_elementSetState(false);
